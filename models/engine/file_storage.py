@@ -85,7 +85,4 @@ class FileStorage:
         Returns the number of objects in storage matching the given class name.
         If no name is passed, returns the count of all objects in storage.
         """
-        cls = eval(cls) if type(cls) is str else cls
-        if cls not in classes.values():
-            return None
         return len(self.all()) if cls is None else len(self.all(cls))
