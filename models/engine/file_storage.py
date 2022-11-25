@@ -26,6 +26,7 @@ class FileStorage:
 
     def all(self, cls=None):
         """returns the dictionary __objects"""
+        cls = eval(cls) if type(cls) is str else cls
         if cls is not None:
             new_dict = {}
             for key, value in self.__objects.items():
