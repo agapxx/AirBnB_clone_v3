@@ -77,7 +77,7 @@ class FileStorage:
         try:
             key = cls.__name__ + '.' + id
             return self.all()[key] if key in obj_keys else None
-        except TypeError:
+        except Exception:
             return None
 
     def count(self, cls=None):
