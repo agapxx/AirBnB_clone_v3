@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''create a view for link between Place objects and Amenity objects'''
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage, storage_t
@@ -6,7 +7,7 @@ from models.amenity import Amenity
 
 
 @app_views.route('/places/<place_id>/amenities',
-                methods=['GET'], strict_slashes=False)
+                 methods=['GET'], strict_slashes=False)
 def get_all_amenities(place_id):
     '''Retrieves the list of all Amenity objects of a Place'''
     place = storage.get('Place', place_id)
