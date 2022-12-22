@@ -15,7 +15,7 @@ def get_all_amenities(place_id):
     if not place:
         abort(400)
 
-    if storage_t:
+    if storage_t == 'db':
         return jsonify([amenity.to_dict() for amenity in place.amenities])
 
     return jsonify([amenity.to_dict() for amenity in place.amenities()])
@@ -31,7 +31,7 @@ def handle_amenity(place_id, amenity_id):
     if not place or not amenity:
         abort(400)
 
-    if storage_t:
+    if storage_t == 'db':
         amenities_in_place = [amenity.id for amenity in place.amenities]
     else:
         amenities_in_place = [amenity.id for amenity in place.amenities()]
